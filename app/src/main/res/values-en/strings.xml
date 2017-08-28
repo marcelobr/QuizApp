@@ -1,6 +1,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">QuizApp</string>
-    <string name="welcome_text">Welcome to the Football World Cup facts quiz! When you\'re ready, tap the button below to get started!</string>
+    <string name="welcome_text">Welcome to the Soccer World Cup facts quiz! When you\'re ready, tap the button below to get started!</string>
     <string name="finish_text">Your score was</string>
     <string name="no_selected_text">No alternatives selected</string>
     <string name="info_text">Question <xliff:g id="question" example="1">%d</xliff:g> of <xliff:g id="limit" example="10">%d</xliff:g></string>
