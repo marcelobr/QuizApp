@@ -1,7 +1,9 @@
 package com.example.android.quizapp;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -9,6 +11,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * This app is a quiz about soccer world cup facts
+ */
 public class MainActivity extends AppCompatActivity {
 
     TextView infoTextView, mainTextView, scoreTextView, feedbackTextView;
@@ -18,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
     int currentQuizQuestion = 1;
     String correctAnswer;
     int quizScore = 0;
+    /**
+     * Quiz Limit
+     */
     int quizLimit = 10;
 
     @Override
@@ -25,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        infoTextView = (TextView) findViewById(R.id.info_textview);
-        mainTextView = (TextView) findViewById(R.id.main_textview);
-        scoreTextView = (TextView) findViewById(R.id.score_textview);
-        feedbackTextView = (TextView) findViewById(R.id.feedback_textview);
-        optionsRadioGroup = (RadioGroup) findViewById(R.id.options_radiogroup);
+        infoTextView = (TextView) findViewById(R.id.info_text_view);
+        mainTextView = (TextView) findViewById(R.id.main_text_view);
+        scoreTextView = (TextView) findViewById(R.id.score_text_view);
+        feedbackTextView = (TextView) findViewById(R.id.feedback_text_view);
+        optionsRadioGroup = (RadioGroup) findViewById(R.id.options_radio_group);
         option1RadioButton = (RadioButton) findViewById(R.id.option1_radio);
         option2RadioButton = (RadioButton) findViewById(R.id.option2_radio);
         option3RadioButton = (RadioButton) findViewById(R.id.option3_radio);
@@ -41,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         restartButton = (Button) findViewById(R.id.restart_button);
     }
 
+    /**
+     * This method is called when the start button is clicked
+     */
     public void startQuiz(View view) {
         setQuizQuestion(currentQuizQuestion);
         startButton.setVisibility(View.GONE);
@@ -50,15 +61,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method is called when the restart button is clicked
+     */
     public void restartQuiz(View view) {
         currentQuizQuestion = 1;
         quizScore = 0;
         mainTextView.setText(R.string.welcome_text);
+        mainTextView.setGravity(Gravity.NO_GRAVITY);
         scoreTextView.setVisibility(View.GONE);
         startButton.setVisibility(View.VISIBLE);
         restartButton.setVisibility(View.GONE);
     }
 
+    /**
+     * This method is called when the check button is clicked
+     */
     public void checkAnswer(View view) {
         int selectedAnswerId = optionsRadioGroup.getCheckedRadioButtonId();
         if (selectedAnswerId == -1) {
@@ -68,8 +86,10 @@ public class MainActivity extends AppCompatActivity {
             if (selectedAnswer.equals(correctAnswer)) {
                 quizScore += 1;
                 feedbackTextView.setText(R.string.feedback_correct);
+                feedbackTextView.setTextColor(Color.parseColor("#4CAF50"));
             } else {
                 feedbackTextView.setText(R.string.feedback_incorrect);
+                feedbackTextView.setTextColor(Color.RED);
             }
             optionsRadioGroup.setEnabled(false);
             for (int i = 0; i < optionsRadioGroup.getChildCount(); i++) {
@@ -81,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method is called when the next button is clicked
+     */
     public void nextQuestion(View view) {
         if (currentQuizQuestion < quizLimit) {
             optionsRadioGroup.setEnabled(true);
@@ -98,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
             }
             infoTextView.setVisibility(View.GONE);
             mainTextView.setText(R.string.finish_text);
+            mainTextView.setGravity(Gravity.CENTER_HORIZONTAL);
             scoreTextView.setText(String.valueOf(quizScore));
             scoreTextView.setVisibility(View.VISIBLE);
             optionsRadioGroup.setVisibility(View.GONE);
@@ -108,10 +132,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method is called to show a new question on the screen
+     * @param index is the index of the question to be shown
+     */
     private void setQuizQuestion(int index) {
         int resId;
 
-        infoTextView.setText(getString(R.string.info_text, index));
+        optionsRadioGroup.clearCheck();
+
+        infoTextView.setText(getString(R.string.info_text, index, quizLimit));
 
         resId = getResources().getIdentifier("quiz_" + index + "_question", "string", getPackageName());
         mainTextView.setText(resId);
@@ -133,7 +163,5 @@ public class MainActivity extends AppCompatActivity {
 
         resId = getResources().getIdentifier("quiz_" + index + "_answer", "string", getPackageName());
         correctAnswer = getString(resId);
-
-        optionsRadioGroup.clearCheck();
     }
 }
