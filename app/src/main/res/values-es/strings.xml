@@ -10,6 +10,10 @@
     <string name="restart_button">Reiniciar</string>
     <string name="feedback_correct">Correcto</string>
     <string name="feedback_incorrect">Incorrecto</string>
+    <string name="hint_text">Responde aquí</string>
+    <string name="quantity_selected">Se deben seleccionar <xliff:g id="number" example="2">%d</xliff:g> opciones</string>
+    <!-- 1 - RadioButtons (5 options) / 2 - CheckBoxes (5 options) / 3 - Text -->
+    <string name="quiz_1_type">1</string>
     <string name="quiz_1_question">¿Qué selección fue campeona de la Copa del mundo de 1950?</string>
     <string name="quiz_1_option_1">Argentina</string>
     <string name="quiz_1_option_2">Brasil</string>
@@ -17,6 +21,8 @@
     <string name="quiz_1_option_4">Alemania</string>
     <string name="quiz_1_option_5">Francia</string>
     <string name="quiz_1_answer">@string/quiz_1_option_3</string>
+    <!-- 1 - RadioButtons (5 options) / 2 - CheckBoxes (5 options) / 3 - Text -->
+    <string name="quiz_2_type">1</string>
     <string name="quiz_2_question">En 2010 tuvimos la Copa del mundo en Sudáfrica, teniendo como campeón la selección de España. ¿Cuántas Copas del Mundo España ganó con esa?</string>
     <string name="quiz_2_option_1">1</string>
     <string name="quiz_2_option_2">2</string>
@@ -24,20 +30,21 @@
     <string name="quiz_2_option_4">4</string>
     <string name="quiz_2_option_5">5</string>
     <string name="quiz_2_answer">@string/quiz_2_option_1</string>
-    <string name="quiz_3_question">¿Cuál de estos jugadores hizo más goles en Copas del Mundo?</string>
-    <string name="quiz_3_option_1">Ronaldo "Fenómeno"</string>
+    <!-- 1 - RadioButtons (5 options) / 2 - CheckBoxes (5 options) / 3 - Text -->
+    <string name="quiz_3_type">2</string>
+    <string name="quiz_3_question">¿Cuáles son los dos jugadores que más hicieron goles en Copas del Mundo?</string>
+    <string name="quiz_3_option_1">Ronaldo \"Fenómeno\"</string>
     <string name="quiz_3_option_2">Tomas Miller</string>
     <string name="quiz_3_option_3">Cristiano Ronaldo</string>
     <string name="quiz_3_option_4">Lionel Messi</string>
-    <string name="quiz_3_option_5">Ninguna de las alternativas</string>
-    <string name="quiz_3_answer">@string/quiz_3_option_2</string>
+    <string name="quiz_3_option_5">Romário</string>
+    <string name="quiz_3_answer">1,2</string>
+    <!-- 1 - RadioButtons (5 options) / 2 - CheckBoxes (5 options) / 3 - Text -->
+    <string name="quiz_4_type">3</string>
     <string name="quiz_4_question">¿Cuál es la selección que conquistó más Copas del Mundo?</string>
-    <string name="quiz_4_option_1">Argentina</string>
-    <string name="quiz_4_option_2">Brasil</string>
-    <string name="quiz_4_option_3">Uruguay</string>
-    <string name="quiz_4_option_4">Alemania</string>
-    <string name="quiz_4_option_5">Francia</string>
-    <string name="quiz_4_answer">@string/quiz_4_option_2</string>
+    <string name="quiz_4_answer">Brasil</string>
+    <!-- 1 - RadioButtons (5 options) / 2 - CheckBoxes (5 options) / 3 - Text -->
+    <string name="quiz_5_type">1</string>
     <string name="quiz_5_question">La Copa del Mundo 2018 se realizará en qué país?</string>
     <string name="quiz_5_option_1">España</string>
     <string name="quiz_5_option_2">Brasil</string>
@@ -45,6 +52,8 @@
     <string name="quiz_5_option_4">Canadá</string>
     <string name="quiz_5_option_5">Qatar</string>
     <string name="quiz_5_answer">@string/quiz_5_option_3</string>
+    <!-- 1 - RadioButtons (5 options) / 2 - CheckBoxes (5 options) / 3 - Text -->
+    <string name="quiz_6_type">1</string>
     <string name="quiz_6_question">La selección campeona de la última Copa del Mundo (2014) fue:</string>
     <string name="quiz_6_option_1">Brasil</string>
     <string name="quiz_6_option_2">Argentina</string>
@@ -52,6 +61,8 @@
     <string name="quiz_6_option_4">Países Bajos</string>
     <string name="quiz_6_option_5">España</string>
     <string name="quiz_6_answer">@string/quiz_6_option_3</string>
+    <!-- 1 - RadioButtons (4 options) / 2 - CheckBoxes (5 options) / 3 - Text -->
+    <string name="quiz_7_type">1</string>
     <string name="quiz_7_question">En 2014, durante la Copa del Mundo en Brasil, un estadio fue conocido por el alto número de goles. ¿Qué estadio es éste?</string>
     <string name="quiz_7_option_1">Arena Corinthians</string>
     <string name="quiz_7_option_2">Mineirão</string>
@@ -59,6 +70,8 @@
     <string name="quiz_7_option_4">Maracanã</string>
     <string name="quiz_7_option_5">Ninguna de las alternativas</string>
     <string name="quiz_7_answer">@string/quiz_7_option_2</string>
+    <!-- 1 - RadioButtons (4 options) / 2 - CheckBoxes (5 options) / 3 - Text -->
+    <string name="quiz_8_type">1</string>
     <string name="quiz_8_question">¿Cuál fue la mayor goleada de la Copa del Mundo de 2014?</string>
     <string name="quiz_8_option_1">Argentina 5x0 Irán</string>
     <string name="quiz_8_option_2">Brasil 1x7 Uruguay</string>
@@ -66,6 +79,8 @@
     <string name="quiz_8_option_4">Brasil 5x1 Rusia</string>
     <string name="quiz_8_option_5">Brasil 1x7 Alemania</string>
     <string name="quiz_8_answer">@string/quiz_8_option_5</string>
+    <!-- 1 - RadioButtons (4 options) / 2 - CheckBoxes (5 options) / 3 - Text -->
+    <string name="quiz_9_type">1</string>
     <string name="quiz_9_question">¿De cuántos en cuántos años se celebra la Copa del Mundo?</string>
     <string name="quiz_9_option_1">De 1 en 1</string>
     <string name="quiz_9_option_2">De 2 en 2</string>
@@ -73,6 +88,8 @@
     <string name="quiz_9_option_4">De 4 en 4</string>
     <string name="quiz_9_option_5">De 5 en 5</string>
     <string name="quiz_9_answer">@string/quiz_9_option_4</string>
+    <!-- 1 - RadioButtons (4 options) / 2 - CheckBoxes (5 options) / 3 - Text -->
+    <string name="quiz_10_type">1</string>
     <string name="quiz_10_question">¿Cuál es la organización responsable de la realización de la Copa del Mundo?</string>
     <string name="quiz_10_option_1">CBF</string>
     <string name="quiz_10_option_2">FIFA</string>
