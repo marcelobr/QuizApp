@@ -32,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
     int questionType;
     int quizScore = 0;
     /**
-     * Quiz Limit
-     */
+     * Quiz Limit     */
     int quizLimit = 10;
 
     @Override
@@ -72,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         startButton.setVisibility(View.GONE);
         checkButton.setVisibility(View.VISIBLE);
         infoTextView.setVisibility(View.VISIBLE);
-        //setVisibleOptions();
     }
 
     /**
@@ -128,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             String selectedAnswer = ((RadioButton) findViewById(selectedAnswerId)).getText().toString();
             showFeedbackAnswer(selectedAnswer.equals(correctAnswer));
-            setDisabledRadioButtons();
+            setDisabledOptions();
             feedbackTextView.setVisibility(View.VISIBLE);
             checkButton.setVisibility(View.GONE);
             nextButton.setVisibility(View.VISIBLE);
@@ -171,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), getString(R.string.quantity_selected, correctAnswerList.size()), Toast.LENGTH_SHORT).show();
             } else {
                 showFeedbackAnswer(correctAnswerList.equals(selectedAnswerList));
-                setDisabledCheckBoxes();
+                setDisabledOptions();
                 feedbackTextView.setVisibility(View.VISIBLE);
                 checkButton.setVisibility(View.GONE);
                 nextButton.setVisibility(View.VISIBLE);
@@ -188,19 +186,18 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), getString(R.string.no_selected_text), Toast.LENGTH_SHORT).show();
         } else {
             showFeedbackAnswer(answer.equals(correctAnswer.toLowerCase().trim()));
-            setDisabledOptionText();
+            setDisabledOptions();
             feedbackTextView.setVisibility(View.VISIBLE);
             checkButton.setVisibility(View.GONE);
             nextButton.setVisibility(View.VISIBLE);
         }
     }
 
+    /**
+     * Clear all options type
+     */
     private void clearOptions() {
-        option1RadioButton.setChecked(false);
-        option2RadioButton.setChecked(false);
-        option3RadioButton.setChecked(false);
-        option4RadioButton.setChecked(false);
-        option5RadioButton.setChecked(false);
+        optionsRadioGroup.clearCheck();
 
         option1CheckBox.setChecked(false);
         option2CheckBox.setChecked(false);
@@ -215,18 +212,16 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the next button is clicked
      */
     public void nextQuestion(View view) {
+        clearOptions();
+        setEnabledOptions();
         if (currentQuizQuestion < quizLimit) {
-            setEnabledOptions();
             setInvisibleOptions();
-            clearOptions();
             feedbackTextView.setVisibility(View.GONE);
             checkButton.setVisibility(View.VISIBLE);
             nextButton.setVisibility(View.GONE);
             setQuizQuestion(currentQuizQuestion += 1);
             //setVisibleOptions();
         } else {
-            setEnabledOptions();
-            clearOptions();
             infoTextView.setVisibility(View.GONE);
             mainTextView.setText(R.string.finish_text);
             mainTextView.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -270,8 +265,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setRadioButtons(int index) {
         int resId;
-
-        optionsRadioGroup.clearCheck();
 
         resId = getResources().getIdentifier("quiz_" + index + "_question", "string", getPackageName());
         mainTextView.setText(resId);
@@ -335,8 +328,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setText(int index) {
         int resId;
-
-        optionTextView.setText("");
 
         resId = getResources().getIdentifier("quiz_" + index + "_answer", "string", getPackageName());
         correctAnswer = getString(resId);
